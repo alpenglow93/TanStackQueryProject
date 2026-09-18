@@ -180,7 +180,7 @@ EOF
 
                     echo "===== Docker Compose 시작 ====="
 
-                    docker compose up -d --scale app=2
+                    docker compose up -d --force-recreate --no-deps --scale app=2
 
                     echo "===== 컨테이너 확인 ====="
 
