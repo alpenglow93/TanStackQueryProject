@@ -1,0 +1,26 @@
+# port 결정 = default 8080 = 9090
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  #ai:
+    #google:
+      #genai:
+        #api-key:
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    prefix: classpath:templates/
+    suffix: .html
+    mode: HTML
+
+# mybatis
+mybatis:
+  type-aliases-package: com.sist.web.vo
+  mapper-locations: mybatis/mapper/*.xml
