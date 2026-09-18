@@ -158,6 +158,10 @@ EOF
             steps {
 
                 sh '''
+                	echo "===== Compose 파일 복사 ====="
+
+            		cp docker-compose.yml ${APP_DIR}/
+            		
                     echo "===== 배포 디렉터리 ====="
 
                     cd ${APP_DIR}
