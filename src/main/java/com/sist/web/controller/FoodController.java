@@ -27,6 +27,7 @@ import java.util.*;
  * 	3. nginx.conf
  * 	4. Jenkinsfile
  * 
+ * 	=> 동작 확인 여부
  */
 
 @Controller
