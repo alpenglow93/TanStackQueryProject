@@ -23,11 +23,11 @@ pipeline {
 						variable: 'DB_URL'
 					),
 					string(
-						credentialsId: 'oracle_name'
+						credentialsId: 'oracle_name',
 						variable: 'DB_USERNAME'
 					),
 					string(
-						credentialsId: 'oracle_pwd'
+						credentialsId: 'oracle_pwd',
 						variable: 'DB_PASSWORD'
 					)
 				]){
