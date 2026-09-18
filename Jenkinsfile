@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "react-app:latest"
-        APP_DIR = "~/app"
+        APP_DIR = "/app"
     }
 
     stages {
