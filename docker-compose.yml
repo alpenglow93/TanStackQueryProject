@@ -1,15 +1,35 @@
 services:
+
+  # =====================================================
+  # Spring Boot Application
+  # =====================================================
   app:
+
+    # Docker Hub 이미지
     image: alpenglow93/react-app:latest
+
+    # 컨테이너 자동 재시작
     restart: always
+
+    # Spring Boot 환경변수
     environment:
+
+      # Spring Profile
       SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
+
+      # Oracle DB
       DB_URL: ${DB_URL}
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
+
+    # 외부에 포트를 직접 공개하지 않음
+    # Nginx가 Docker 내부 네트워크를 통해 접근
     expose:
       - "8080"
+
+    # Spring Boot Health Check
     healthcheck:
+
       test:
         [
           "CMD",
@@ -19,18 +39,15 @@ services:
           "--spider",
           "http://localhost:8080/actuator/health"
         ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 30s
 
-  nginx:
-    image: nginx:latest
-    container_name: nginx
-    restart: always
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-    depends_on:
-      - app
+      # 10초마다 확인
+      interval: 10s
+
+      # 응답 대기시간
+      timeout: 5s
+
+      # 실패 횟수
+      retries: 5
+
+      # 최초 실행 후 30초 동안 대기
+      start_period: 30s
