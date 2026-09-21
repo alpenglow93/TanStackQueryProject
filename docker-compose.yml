@@ -6,7 +6,7 @@ services:
   app:
 
     # Docker Hub 이미지
-    image: alpenglow93/react-app:latest
+    image: chaijewon/react-app:latest
 
     # 컨테이너 자동 재시작
     restart: always
@@ -51,3 +51,30 @@ services:
 
       # 최초 실행 후 30초 동안 대기
       start_period: 30s
+
+
+  # =====================================================
+  # Nginx
+  # =====================================================
+  nginx:
+
+    # Nginx 이미지
+    image: nginx:latest
+
+    # 컨테이너 이름
+    container_name: nginx
+
+    # 자동 재시작
+    restart: always
+
+    # EC2 80번 포트 → Nginx 80번 포트
+    ports:
+      - "80:80"
+
+    # Nginx 설정파일 연결
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+
+    # app 컨테이너 실행 후 nginx 실행
+    depends_on:
+      - app
