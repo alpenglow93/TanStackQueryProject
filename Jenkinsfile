@@ -265,6 +265,8 @@ chmod 600 ${EC2_APP_DIR}/.env
                             echo "======================================"
 
                             docker compose up -d --scale app=2
+                            
+                            docker compose restart nginx
 
                             echo "======================================"
                             echo " 컨테이너 확인"
