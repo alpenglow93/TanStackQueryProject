@@ -6,7 +6,7 @@ services:
   app:
 
     # Docker Hub 이미지
-    image: chaijewon/react-app:latest
+    image: alpenglow93/react-app:latest
 
     # 컨테이너 자동 재시작
     restart: always
