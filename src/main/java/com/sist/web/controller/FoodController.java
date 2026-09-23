@@ -61,7 +61,7 @@ public class FoodController {
 		
 		// 페이지 나누기
 		int totalpage = (int)(Math.ceil(count/12.0));
-		final int BLOCK = 12;
+		final int BLOCK = 10;
 		int startPage = ((curpage-1)/BLOCK*BLOCK)+1;
 		int endPage = ((curpage-1)/BLOCK*BLOCK)+BLOCK;
 		if(endPage>totalpage)

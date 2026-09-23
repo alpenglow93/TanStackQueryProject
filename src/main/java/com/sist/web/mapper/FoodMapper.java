@@ -35,4 +35,12 @@ public interface FoodMapper {
 		</select>
 	 */
 	public int foodListTotalPage(String search);
+	
+	/*
+	 * 	<select id="foodDetailData" resultType="com.sist.web.vo.FoodVO" parameterType="int">
+			SELECT * FROM food
+			WHERE no=#{no}
+		</select>
+	 */
+	public FoodVO foodDetailData(int no);
 }

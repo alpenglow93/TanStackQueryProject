@@ -26,4 +26,9 @@
 			WHERE address LIKE '%'||#{search}||'%'
 		</if>
 	</select>
+	
+	<select id="foodDetailData" resultType="com.sist.web.vo.FoodVO" parameterType="int">
+		SELECT * FROM food
+		WHERE no=#{no}
+	</select>
 </mapper>

@@ -22,7 +22,8 @@ public class FoodService {
 		for(FoodVO vo : list)
 		{
 			String[] temp = vo.getTheme().split(",");
-			vo.setTheme(temp[0] + "," + temp[1]);
+			if(temp.length>=2)
+				vo.setTheme(temp[0] + "," + temp[1]);
 		}
 		
 		return list;
@@ -31,6 +32,11 @@ public class FoodService {
 	public int foodListTotalPage(String search)
 	{
 		return fMapper.foodListTotalPage(search);
+	}
+	
+	public FoodVO foodDetailData(int no)
+	{
+		return fMapper.foodDetailData(no);
 	}
 
 }
